@@ -46,3 +46,37 @@ fig.show()
 df_rent.describe()
 
 df_rent["Price"].median()
+
+df_rent["Property Type"].value_counts()
+
+df_rent["Suites"].value_counts()
+
+df_cleaned = df_rent.drop(["New", "Property Type", "Negotiation Type"], axis=1)
+
+df_cleaned
+
+one_hot = pd.get_dummies(df_cleaned["District"])
+
+one_hot
+
+df = df_cleaned.drop('District', axis = 1)
+df = df.join(one_hot)
+df
+
+from sklearn.model_selection import train_test_split
+
+Y = df["Price"]
+X = df.loc[:, df.columns != "Price"]
+
+X
+
+Y
+
+x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.3)
+
+y_train
+
+from sklearn.ensemble import RandomForestRegressor
+
+rf_reg = RandomForestRegressor()
+rf_reg.fit(x_train, y_train)
