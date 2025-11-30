@@ -80,3 +80,44 @@ from sklearn.ensemble import RandomForestRegressor
 
 rf_reg = RandomForestRegressor()
 rf_reg.fit(x_train, y_train)
+
+y_test.iloc[0]
+np.int64(1100)
+
+x_test.iloc[0].head(10)
+
+10200
+Condo	410
+Size	50
+Rooms	3
+Toilets	2
+Suites	1
+Parking	1
+Elevator	1
+Furnished	0
+Swimming Pool	1
+Latitude	-23.487513
+
+
+n = 6
+
+print(y_test.iloc[n])
+print(x_test.iloc[n].head(10))
+rf_reg.predict(x_test.iloc[n].values.reshape(1, -1))
+6000
+Condo                 1372
+Size                    60
+Rooms                    1
+Toilets                  2
+Suites                   1
+Parking                  2
+Elevator                 0
+Furnished                0
+Swimming Pool            0
+Latitude        -23.588319
+Name: 3612, dtype: object
+/usr/local/lib/python3.12/dist-packages/sklearn/utils/validation.py:2739: UserWarning:
+
+X does not have valid feature names, but RandomForestRegressor was fitted with feature names
+
+array([5912.63])
